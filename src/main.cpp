@@ -211,8 +211,16 @@ int render_cei(char* path) {
     return 0;
 }
 
+int print_help() {
+    cout << "Ol' Keeper Reader by Wirlaburla (v0.1)\n"
+         << "Licensed under the GPL3.\n"
+         << "\n"
+         << "\trender <file>\trenders map into bitmap\n";
+    return 0;
+}
+
 int main (int argc, char **argv) {
-    if (argc >= 1) {
+    if (argc > 1) {
         for(int i = 1; i < argc; i++) {
             std::string arg = std::string(argv[i]);
             if (arg == "render") {
@@ -225,14 +233,15 @@ int main (int argc, char **argv) {
                 } else if (str_ends_with(argv[i+1], ".cei")) {
                     return render_cei(argv[i+1]);
                 } else {
-                    cout << "Format not supported.\n";
+                    cerr << "No file provided or file given is not supported.\n";
                     return 1;
                 }
             } else {
-                cout << "Old Keeper Render by Wirlaburla (v0.1)\n";
-                cout << "oldkeeperrender render <file>\n";
+                print_help();
             }
         }
+    } else {
+        print_help();
     }
 
     return 0;
