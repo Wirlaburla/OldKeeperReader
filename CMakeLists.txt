@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(oldkeeperfiler)
+project(oldkeeperreader)
 
-add_executable(oldkeeperfiler main.cpp)
+add_executable(
+    oldkeeperreader
+    src/main.cpp
+    src/bmp.h
+    src/dumbutil.h
+)
 
-install(TARGETS oldkeeperfiler RUNTIME DESTINATION bin)
+install(TARGETS oldkeeperreader RUNTIME DESTINATION bin)
