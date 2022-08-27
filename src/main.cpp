@@ -225,7 +225,6 @@ int main (int argc, char **argv) {
             std::string arg = std::string(argv[i]);
             if (arg == "render") {
                 output = std::string(argv[i+1]) + ".bmp";
-                cout << output << "\n";
                 if (str_ends_with(argv[i+1], ".flg")) {
                     return render_flg(argv[i+1]);
                 } else if (str_ends_with(argv[i+1], ".ori")) {
